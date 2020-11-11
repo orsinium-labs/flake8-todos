@@ -49,7 +49,7 @@ python -m flake8 example.py
 
 ## License
 
-+ The content of this repository contains a public fork of flake8-todos developed by [EclecticIQ B.V.](https://github.com/eclecticiq). Release 0.1.2 of the package was licensed under MIT License. File [LICENSE](LICENSE) contains the original license file.
++ The content of this repository contains a public fork of flake8-todos developed by [EclecticIQ B.V.](https://github.com/eclecticiq). Release 0.1.2 of the package was licensed under BSD 3-Clause License. File [LICENSE](LICENSE) contains the original license file.
 + The fork is distributed under the same license and conditions.
 + Release 0.1.2, all earlier releases, and corresponding source code are licensed under copyright "2019 EclecticIQ".
 + All the later changes and distributions starting from 0.1.4 inclusively are licensed under copyright "2020 Gram <gram@orsinium.dev>".

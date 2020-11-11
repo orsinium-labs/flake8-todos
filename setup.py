@@ -18,7 +18,7 @@ setup(
     description='Check TODOs in the project',
     project_urls={'repository': 'https://github.com/orsinium-labs/flake8-todos'},
     author='Gram <gram@orsinium.dev>',
-    license='MIT',
+    license='BSD 3-Clause',
     keywords='flake8 flake8-plugin linter styleguide code quality',
     classifiers=[
         'Development Status :: 4 - Beta', 'Environment :: Console',
