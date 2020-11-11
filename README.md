@@ -2,12 +2,11 @@
 
 Plugin for [flake8](http://flake8.pycqa.org/en/latest/) linter to check TODOs in the project.
 
-
 Good:
 
 ```python
 # TODO(gram): check performance
-# https://github.com/eclecticiq/flake8-todos/issues/1337
+# https://github.com/orsinium-labs/flake8-todos/issues/1337
 ```
 
 Bad:
@@ -50,5 +49,10 @@ python -m flake8 example.py
 
 ## License
 
-The content of this repository is released under the [3-clause BSD license](http://opensource.org/licenses/BSD-3-Clause).
-See the [LICENSE](LICENSE) file for more information.
++ The content of this repository contains a public fork of flake8-todos developed by [EclecticIQ B.V.](https://github.com/eclecticiq). Release 0.1.2 of the package was licensed under MIT License. File [LICENSE](LICENSE) contains the original license file.
++ The fork is distributed under the same license and conditions.
++ Release 0.1.2, all earlier releases, and corresponding source code are licensed under copyright "2019 EclecticIQ".
++ All the later changes and distributions starting from 0.1.4 inclusively are licensed under copyright "2020 Gram <gram@orsinium.dev>".
++ Both copyrights are included in releases of the fork since it contains changes from both parties.
+
+The fork was created to provide source code, distributions, and maintenance for the project.
