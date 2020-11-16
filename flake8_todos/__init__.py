@@ -6,6 +6,8 @@ from ._rules import register_rule, rules
 from ._token import Token
 
 
+__version__ = '0.1.4'
+
 # keep sorted
 __all__ = [
     'Checker',

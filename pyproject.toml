@@ -1,3 +1,35 @@
 [tool.dephell.main]
-from = {format = "setuppy", path = "setup.py"}
+from = {format = "flit", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
 tag = "v."
+
+[tool.flit.metadata]
+module = "flake8_todos"
+dist-name = "flake8-todos"
+author = "Gram"
+author-email = "gram@orsinium.dev"
+home-page = "https://github.com/orsinium-labs/flake8-todos"
+license = "BSD 3-Clause"
+keywords = "flake8 flake8-plugin linter styleguide code quality"
+requires = ["flake8", "pycodestyle"]
+requires-python = ">=3.6"
+description-file = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta", "Environment :: Console",
+    "Framework :: Flake8",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "License :: OSI Approved :: BSD License",
+]
+
+[tool.flit.metadata.requires-extra]
+dev = ["isort[pyproject]", "pytest"]
+
+[tool.flit.entrypoints."flake8.extension"]
+T00 = "flake8_todos:Checker"
+
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
