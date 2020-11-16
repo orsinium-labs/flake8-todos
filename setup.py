@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='flake8-todos',
-    version='0.1.4',
+    version='0.1.5',
     python_requires='>=3.6',
     project_urls={"homepage": "https://github.com/orsinium-labs/flake8-todos"},
     author='Gram',
