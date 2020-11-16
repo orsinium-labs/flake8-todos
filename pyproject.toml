@@ -1,0 +1,3 @@
+[tool.dephell.main]
+from = {format = "setuppy", path = "setup.py"}
+tag = "v."
