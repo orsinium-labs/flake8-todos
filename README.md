@@ -23,6 +23,7 @@ Checks:
 + **T004**: missed colon in TODO.
 + **T005**: missed text in TODO.
 + **T006**: write TODO instead of ToDo (use upper case).
++ **T007**: missed space in TODO.
 
 ## Installation
 
