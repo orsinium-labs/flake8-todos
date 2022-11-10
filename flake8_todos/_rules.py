@@ -1,8 +1,7 @@
 # built-in
 import re
-from abc import ABC, abstractproperty
 from tokenize import COMMENT, NEWLINE, NL
-from typing import Iterator, List, Type
+from typing import ClassVar, Iterator, List, Type
 
 # project
 from ._constants import ALL_TAGS, BAD_TAGS
@@ -28,14 +27,9 @@ def register_rule(rule: Type['BaseRule']) -> Type['BaseRule']:
     return rule
 
 
-class BaseRule(ABC):
-    @abstractproperty
-    def code(self) -> int:
-        raise NotImplementedError
-
-    @abstractproperty
-    def text(self) -> str:
-        raise NotImplementedError
+class BaseRule:
+    code: ClassVar[int]
+    text: ClassVar[str]
 
     def __call__(self, tokens: List[Token]) -> Iterator[Error]:
         for token in tokens:

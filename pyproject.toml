@@ -28,3 +28,15 @@ dev = ["isort[pyproject]", "pytest"]
 
 [tool.flit.entrypoints."flake8.extension"]
 T00 = "flake8_todos:Checker"
+
+[tool.mypy]
+files = ["mypy_baseline"]
+python_version = 3.8
+ignore_missing_imports = true
+# follow_imports = "silent"
+show_error_codes = true
+check_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_ignores = true

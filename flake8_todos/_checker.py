@@ -1,7 +1,7 @@
 # built-in
 from functools import partial
 from tokenize import TokenInfo, generate_tokens
-from typing import Iterable, Iterator, Tuple
+from typing import Iterable, Iterator, Optional, Tuple
 
 # external
 import pycodestyle
@@ -19,10 +19,15 @@ class Checker:
     version = '1.0.0'
 
     rules = rules
-    _tokens: Iterable[TokenInfo] | None = None
+    _tokens: Optional[Iterable[TokenInfo]] = None
 
-    def __init__(self, tree=None, filename: str = None, lines: Iterable[str] = None,
-                 file_tokens: Iterable[TokenInfo] = None):
+    def __init__(
+        self,
+        tree=None,
+        filename: Optional[str] = None,
+        lines: Optional[Iterable[str]] = None,
+        file_tokens: Optional[Iterable[TokenInfo]] = None,
+    ):
         self.filename = 'stdin' if filename in ('stdin', '-', None) else filename
         if lines:
             self.lines = tuple(lines)
@@ -40,12 +45,12 @@ class Checker:
             tokens = self._tokens
         else:
             getter = partial(next, iter(self.lines))
-            tokens = generate_tokens(getter)  # type: ignore
+            tokens = generate_tokens(getter)  # type: ignore[arg-type]
         return tuple(Token(token) for token in tokens)
 
     def run(self) -> Iterator[tuple]:
         for error in self.get_errors():
-            yield tuple(error) + (type(self), )  # type: ignore
+            yield tuple(error) + (type(self), )
 
     def get_errors(self) -> Iterator[Error]:
         for rule in self.rules:

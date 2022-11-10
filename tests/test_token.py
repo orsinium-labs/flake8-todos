@@ -8,7 +8,7 @@ from flake8_todos import Token
 
 def test_token_fields():
     getter = partial(next, iter(['a = "b"']))
-    tokens = [Token(token) for token in generate_tokens(getter)]
+    tokens = [Token(token) for token in generate_tokens(getter)]  # type: ignore[arg-type]
     assert len(tokens) == 5
 
     assert tokens[0].type == NAME
