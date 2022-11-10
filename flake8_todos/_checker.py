@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from functools import partial
 from tokenize import TokenInfo, generate_tokens
-from typing import Iterable, Iterator, Optional, Tuple
+from typing import Iterable, Iterator
 
 import pycodestyle
 from flake8 import utils as stdin_utils
@@ -18,14 +18,14 @@ class Checker:
     version = '1.0.0'
 
     rules = rules
-    _tokens: Optional[Iterable[TokenInfo]] = None
+    _tokens: Iterable[TokenInfo] | None = None
 
     def __init__(
         self,
         tree=None,
-        filename: Optional[str] = None,
-        lines: Optional[Iterable[str]] = None,
-        file_tokens: Optional[Iterable[TokenInfo]] = None,
+        filename: str | None = None,
+        lines: Iterable[str] | None = None,
+        file_tokens: Iterable[TokenInfo] | None = None,
     ):
         self.filename = 'stdin' if filename in ('stdin', '-', None) else filename
         if lines:
@@ -33,13 +33,13 @@ class Checker:
         self._tokens = file_tokens
 
     @cached_property
-    def lines(self) -> Tuple[str]:
+    def lines(self) -> tuple[str]:
         if self.filename == 'stdin':
             return stdin_utils.stdin_get_value().splitlines(True)
         return pycodestyle.readlines(self.filename)
 
     @cached_property
-    def tokens(self) -> Tuple[Token, ...]:
+    def tokens(self) -> tuple[Token, ...]:
         if self._tokens is not None:
             tokens = self._tokens
         else:

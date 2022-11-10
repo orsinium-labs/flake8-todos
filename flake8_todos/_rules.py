@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from tokenize import COMMENT, NEWLINE, NL
-from typing import ClassVar, Iterator, List, Type
+from typing import ClassVar, Iterator
 
 from ._constants import ALL_TAGS, BAD_TAGS
 from ._error import Error
@@ -16,10 +16,10 @@ REX_ISSUE = re.compile(r'[A-Z]{1,6}\-?\d+')
 REX_TICKET = re.compile(r'\s\#\d+')
 
 # registry with all rules
-rules = []  # type: List[BaseRule]
+rules: list[BaseRule] = []
 
 
-def register_rule(rule: Type['BaseRule']) -> Type['BaseRule']:
+def register_rule(rule: type[BaseRule]) -> type[BaseRule]:
     for other in rules:
         if other.code == rule.code:
             raise ValueError('duplicate codes for rules')
@@ -31,7 +31,7 @@ class BaseRule:
     code: ClassVar[int]
     text: ClassVar[str]
 
-    def __call__(self, tokens: List[Token]) -> Iterator[Error]:
+    def __call__(self, tokens: list[Token]) -> Iterator[Error]:
         for token in tokens:
             if self._check(token=token):
                 continue
@@ -53,7 +53,7 @@ class BadTagRule(BaseRule):
 
     _rex = REX_BAD_TAGS
 
-    def __call__(self, tokens: List[Token]) -> Iterator[Error]:
+    def __call__(self, tokens: list[Token]) -> Iterator[Error]:
         for token in tokens:
             if token.type != COMMENT:
                 continue
@@ -101,10 +101,10 @@ class MissedLinkRule(BaseRule):
     _rex_issue = REX_ISSUE
     _rex_ticket = REX_TICKET
 
-    def __call__(self, tokens: List[Token]) -> Iterator[Error]:
-        groups = []
-        start_tokens = []
-        group = []  # type: List[str]
+    def __call__(self, tokens: list[Token]) -> Iterator[Error]:
+        groups: list[str] = []
+        start_tokens: list[Token] = []
+        group: list[str] = []
         for token in tokens:
             if token.type in (NEWLINE, NL):
                 continue
@@ -210,7 +210,7 @@ class InvalidCaseRule(BaseRule):
 
     _rex = REX_ALL_TAGS
 
-    def __call__(self, tokens: List[Token]) -> Iterator[Error]:
+    def __call__(self, tokens: list[Token]) -> Iterator[Error]:
         for token in tokens:
             if token.type != COMMENT:
                 continue
