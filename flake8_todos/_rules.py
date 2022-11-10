@@ -142,8 +142,8 @@ class MissedLinkRule(BaseRule):
         if group:
             groups.append('\n'.join(group))
 
-        for token, group in zip(start_tokens, groups):
-            if self._check(group=group):
+        for token, text_group in zip(start_tokens, groups):
+            if self._check(group=text_group):
                 continue
             yield Error(
                 row=token.start_row,

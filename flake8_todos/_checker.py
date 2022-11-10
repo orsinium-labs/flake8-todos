@@ -5,6 +5,7 @@ from typing import Iterable, Iterator, Tuple
 
 # external
 import pycodestyle
+from flake8 import utils as stdin_utils
 
 # project
 from ._cached_property import cached_property
@@ -13,18 +14,12 @@ from ._rules import rules
 from ._token import Token
 
 
-try:
-    from flake8.engine import pep8 as stdin_utils
-except ImportError:
-    from flake8 import utils as stdin_utils
-
-
 class Checker:
     name = 'flake8-todos'
     version = '1.0.0'
 
     rules = rules
-    _tokens = None
+    _tokens: Iterable[TokenInfo] | None = None
 
     def __init__(self, tree=None, filename: str = None, lines: Iterable[str] = None,
                  file_tokens: Iterable[TokenInfo] = None):
