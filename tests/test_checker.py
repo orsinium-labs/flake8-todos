@@ -1,11 +1,10 @@
-# built-in
+from __future__ import annotations
+
 from pathlib import Path
 from textwrap import dedent
 
-# external
 import pytest
 
-# project
 from flake8_todos import Checker, _rules as rules
 
 
@@ -61,7 +60,7 @@ def checker(tmp_path: Path, text: str) -> Checker:
         (rules.MissedSpaceRule,     False,  '1 # TODO(author):no-space'),
     ],
 )
-def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker):
+def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker) -> None:
     """Test all rules
 
     + `rule` goes from parametrize and used to filter errors by this rule code.
@@ -87,6 +86,6 @@ def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker):
         c = 15
     """,
 ])
-def test_missed_link(checker: Checker):
+def test_missed_link(checker: Checker) -> None:
     errors = [error for error in checker.get_errors() if error.code == 3]
     assert {error.row for error in errors} == {3}

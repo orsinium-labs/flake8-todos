@@ -1,7 +1,7 @@
-# built-in
-from typing import Iterator, Union
+from __future__ import annotations
 
-# project
+from typing import Iterator
+
 from ._constants import PREFIX
 
 
@@ -20,7 +20,7 @@ class Error:
             text=self.text,
         )
 
-    def __iter__(self) -> Iterator[Union[int, str]]:
+    def __iter__(self) -> Iterator[int | str]:
         yield self.row
         yield self.col
         yield self.message

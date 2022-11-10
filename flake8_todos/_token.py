@@ -1,6 +1,6 @@
-# built-in
+from __future__ import annotations
+
 from tokenize import TokenInfo
-from typing import Tuple
 
 
 class Token:
@@ -16,7 +16,7 @@ class Token:
         return self.token[1]
 
     @property
-    def start(self) -> Tuple[int, int]:
+    def start(self) -> tuple[int, int]:
         return self.token[2]
 
     @property
@@ -28,7 +28,7 @@ class Token:
         return self.start[1]
 
     @property
-    def end(self) -> Tuple[int, int]:
+    def end(self) -> tuple[int, int]:
         return self.token[3]
 
     @property
