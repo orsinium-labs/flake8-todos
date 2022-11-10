@@ -234,3 +234,24 @@ class InvalidCaseRule(BaseRule):
                     good=match.group(1).upper(),
                 ),
             )
+
+@register_rule
+class MissedSpaceRule(BaseRule):
+    code = 7
+    text = 'missed space after colon in TODO'
+
+    _rex = REX_ALL_TAGS
+
+    def _check(self, token: Token) -> bool:
+        if token.type != COMMENT:
+            return True
+
+        match = self._rex.search(token.string)
+        if not match:
+            return True
+
+        if ' ' not in token.string:
+            return False
+
+        body = token.string[match.end():].strip()
+        return body[0] == ': ' or '): ' in body

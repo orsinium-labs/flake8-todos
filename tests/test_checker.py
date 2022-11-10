@@ -56,6 +56,9 @@ def checker(tmp_path: Path, text: str) -> Checker:
         (rules.MissedLinkRule,      True,   '1 # TODO no colon EIQ-911'),
         (rules.MissedLinkRule,      False,  '1 # TODO(author): no code or link'),
         (rules.MissedLinkRule,      False,  '1 # TODO(author): lowercase lol-911'),
+        (rules.MissedSpaceRule,     True,   '1 # TODO(author): i have a space'),
+        (rules.MissedSpaceRule,     False,  '1 # TODO(author):i need a space'),
+        (rules.MissedSpaceRule,     False,  '1 # TODO(author):no-space'),
     ],
 )
 def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker):
