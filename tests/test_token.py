@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 from functools import partial
 from tokenize import NAME, generate_tokens
@@ -5,7 +6,7 @@ from tokenize import NAME, generate_tokens
 from flake8_todos import Token
 
 
-def test_token_fields():
+def test_token_fields() -> None:
     getter = partial(next, iter(['a = "b"']))
     tokens = [Token(token) for token in generate_tokens(getter)]  # type: ignore[arg-type]
     assert len(tokens) == 5

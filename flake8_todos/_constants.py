@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 
 BAD_TAGS = ('XXX', 'BUG', 'FIXME')

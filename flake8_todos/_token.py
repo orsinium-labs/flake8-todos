@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 from tokenize import TokenInfo
 from typing import Tuple

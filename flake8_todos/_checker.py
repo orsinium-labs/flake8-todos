@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 from functools import partial
 from tokenize import TokenInfo, generate_tokens

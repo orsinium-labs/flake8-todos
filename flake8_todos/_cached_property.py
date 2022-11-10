@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 
 class cached_property(object):  # noqa
     def __init__(self, func):
