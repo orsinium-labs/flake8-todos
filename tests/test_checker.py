@@ -79,13 +79,14 @@ def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker):
         assert errors[0].row == 1
 
 
-@pytest.mark.parametrize('text',[
-"""
-    # TODO: multiline
-    # link goes here http://github.com/a/b/issues/1/
-    # TODO: new todo
-    c = 15
-"""])
+@pytest.mark.parametrize('text', [
+    """
+        # TODO: multiline
+        # link goes here http://github.com/a/b/issues/1/
+        # TODO: new todo
+        c = 15
+    """,
+])
 def test_missed_link(checker: Checker):
     errors = [error for error in checker.get_errors() if error.code == 3]
     assert {error.row for error in errors} == {3}

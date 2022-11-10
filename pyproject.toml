@@ -1,7 +1,6 @@
-[tool.dephell.main]
-from = {format = "flit", path = "pyproject.toml"}
-to = {format = "setuppy", path = "setup.py"}
-tag = "v."
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
 module = "flake8_todos"
@@ -29,7 +28,3 @@ dev = ["isort[pyproject]", "pytest"]
 
 [tool.flit.entrypoints."flake8.extension"]
 T00 = "flake8_todos:Checker"
-
-[build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"

@@ -235,6 +235,7 @@ class InvalidCaseRule(BaseRule):
                 ),
             )
 
+
 @register_rule
 class MissedSpaceRule(BaseRule):
     code = 7

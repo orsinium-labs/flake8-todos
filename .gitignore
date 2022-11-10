@@ -1,6 +1,6 @@
 .vscode
-__pycache__
-.pytest_cache
-*.egg-info
+__pycache__/
+.*_cache
+*.egg-info/
 dist/
-README.rst
+/README.rst
