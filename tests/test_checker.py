@@ -1,11 +1,9 @@
-# built-in
+
 from pathlib import Path
 from textwrap import dedent
 
-# external
 import pytest
 
-# project
 from flake8_todos import Checker, _rules as rules
 
 

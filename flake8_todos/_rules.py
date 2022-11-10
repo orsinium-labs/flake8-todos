@@ -1,9 +1,8 @@
-# built-in
+
 import re
 from tokenize import COMMENT, NEWLINE, NL
 from typing import ClassVar, Iterator, List, Type
 
-# project
 from ._constants import ALL_TAGS, BAD_TAGS
 from ._error import Error
 from ._token import Token

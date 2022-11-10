@@ -1,8 +1,7 @@
-# built-in
+
 from functools import partial
 from tokenize import NAME, generate_tokens
 
-# project
 from flake8_todos import Token
 
 

@@ -1,7 +1,6 @@
-# built-in
+
 from typing import Iterator, Union
 
-# project
 from ._constants import PREFIX
 
 

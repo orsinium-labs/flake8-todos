@@ -1,13 +1,11 @@
-# built-in
+
 from functools import partial
 from tokenize import TokenInfo, generate_tokens
 from typing import Iterable, Iterator, Optional, Tuple
 
-# external
 import pycodestyle
 from flake8 import utils as stdin_utils
 
-# project
 from ._cached_property import cached_property
 from ._error import Error
 from ._rules import rules
