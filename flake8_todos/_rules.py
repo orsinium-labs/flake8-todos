@@ -254,4 +254,4 @@ class MissedSpaceRule(BaseRule):
             return False
 
         body = token.string[match.end():].strip()
-        return body[0] == ': ' or '): ' in body
+        return body[:2] == ': ' or '): ' in body
