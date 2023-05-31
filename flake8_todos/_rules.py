@@ -87,9 +87,12 @@ class MissedAuthorRule(BaseRule):
         if not body:
             return False
         # check brackets format
-        if body[0] != '(' or body[-1] != ')':
-            return False
-        return bool(body[1:-1].strip())
+        if body[0] == '(' and body[-1] == ')':
+            return bool(body[1:-1].strip())
+        # check alternative format using @
+        if body[0] == '@':
+            return bool(body[1:].strip())
+        return False
 
 
 @register_rule
