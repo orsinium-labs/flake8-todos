@@ -6,7 +6,7 @@ from ._rules import register_rule, rules
 from ._token import Token
 
 
-__version__ = '0.2.1'
+__version__ = '0.3.0'
 
 # keep sorted
 __all__ = [
