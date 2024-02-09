@@ -179,6 +179,8 @@ class MissedColonRule(BaseRule):
         if ':' not in token.string:
             return False
         body = token.string[match.end():].strip()
+        if len(body) == 0:
+            return False
         return body[0] == ':' or '):' in body
 
 
