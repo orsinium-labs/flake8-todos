@@ -61,6 +61,7 @@ def checker(tmp_path: Path, text: str) -> Checker:
         (rules.MissedSpaceRule,     False,  '1 # TODO(author):no-space'),
         (rules.MissedSpaceRule,     True,   '1 # TODO: i have a space with no author'),
         (rules.MissedSpaceRule,     False,  '1 # TODO:i need a space with no author'),
+        (rules.MissedSpaceRule,     False,  '1 # type: ignore[index] #TODO'),
     ],
 )
 def test_rules(rule: rules.BaseRule, ok: bool, checker: Checker) -> None:
